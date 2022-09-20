@@ -1,34 +1,38 @@
 #include "lists.h"
 
 /**
- * kd
+ * insert_node - adds a node in a sorted list
+ *
+ * @head: pointer to the list
+ * @n: data to add
+ *
+ * Return: returns pointer to new node
  */
-listint_t *insert_node(listint_t **head, int number)
+listint_t *insert_node(listint_t **head, int n)
 {
-	listint_t *new;
-	listint_t *temp = *head;
+	listint_t *new, *tmp, *prev;
 
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
+	if (!head)
+		return (0);
+	new = malloc(sizeof(*new));
+	if (!new)
+		return (0);
+	new->n = n;
+	if (!(*head))
 	{
-		return (NULL);
+		*head = new;
+		return (new);
 	}
-	new->n = number;
-	new->next = NULL;
-	if (temp == NULL || new->n <= temp->n)
+	tmp = prev = *head;
+	while (tmp && tmp->n < n)
 	{
-		new->next = temp;
-		return (*head = new);
+		prev = tmp;
+		tmp = tmp->next;
 	}
-	while (temp)
-	{
-		if (temp->next == NULL || new->n <= temp->next->n)
-		{
-			new->next = temp->next;
-			temp->next = new;
-			return (temp);
-		}
-		temp = temp->next;
-	}
-	return (NULL);
+	if (prev == tmp)
+		*head = new;
+	else
+		prev->next = new;
+	new->next = tmp;
+	return (new);
 }
