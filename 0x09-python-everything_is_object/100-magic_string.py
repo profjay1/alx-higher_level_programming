@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
-def magic_string(string=[]):
-    string += ["Holberton"]
-    return(", ".join(string))
+def magic_string(H=[]):
+    H += ["BestSchool"]
+    return (", ".join(H))
