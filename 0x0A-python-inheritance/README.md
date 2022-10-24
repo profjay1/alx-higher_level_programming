@@ -1,1 +1,1 @@
-Solutions to Python Inheritance tasks.
+Solutions to Python Inheritance tasks and tests.
