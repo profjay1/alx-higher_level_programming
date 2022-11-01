@@ -1,1 +1,1 @@
-Solutions to Python, almost a cycle
+Solutions to Python, almost a cycle tasks.
